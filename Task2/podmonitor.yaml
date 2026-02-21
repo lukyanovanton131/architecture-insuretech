@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: test-app-podmonitor
+  namespace: monitoring
+  labels:
+    release: prometheus   # добавлено
+spec:
+  selector:
+    matchLabels:
+      app: test-app
+  podMetricsEndpoints:
+  - port: http
+    interval: 15s
+    path: /metrics
+  namespaceSelector:
+    matchNames:
+    - default

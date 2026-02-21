@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-app-svc
+spec:
+  selector:
+    app: test-app
+  ports:
+  - port: 8080
+    targetPort: 8080
+  type: NodePort  # или NodePort, если нужен внешний доступ
